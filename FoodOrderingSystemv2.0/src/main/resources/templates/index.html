@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body data-theme="system">
+<main class="shell">
+    <section class="hero panel">
+        <div class="hero-copy">
+            <p class="eyebrow">Service Console</p>
+            <h1 id="restaurant-name">Food Ordering System</h1>
+            <p id="restaurant-tagline" class="hero-text">A unified view across menu, dining tables, and kitchen activity.</p>
+            <div class="hero-actions">
+                <button id="theme-toggle" class="button button-primary" type="button">Toggle theme</button>
+                <span id="theme-label" class="status-pill">Theme: system</span>
+            </div>
+        </div>
+        <div class="hero-highlight">
+            <div class="metric-card">
+                <span>Live menu items</span>
+                <strong id="metric-menu">0</strong>
+            </div>
+            <div class="metric-card">
+                <span>Available tables</span>
+                <strong id="metric-tables">0</strong>
+            </div>
+            <div class="metric-card">
+                <span>Active kitchen orders</span>
+                <strong id="metric-orders">0</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid">
+        <article class="panel">
+            <div class="section-head">
+                <h2>Theme Tokens</h2>
+                <p>Shared styling values exposed by the backend.</p>
+            </div>
+            <dl id="theme-tokens" class="token-list"></dl>
+        </article>
+
+        <article class="panel">
+            <div class="section-head">
+                <h2>Dining Tables</h2>
+                <p>Stable DTO-backed data for the frontend.</p>
+            </div>
+            <div id="tables" class="table-list"></div>
+        </article>
+    </section>
+
+    <section class="grid grid-wide">
+        <article class="panel">
+            <div class="section-head">
+                <h2>Menu Snapshot</h2>
+                <p>Category-aware menu items returned by the REST API.</p>
+            </div>
+            <div id="menu" class="menu-list"></div>
+        </article>
+
+        <article class="panel">
+            <div class="section-head">
+                <h2>Kitchen Queue</h2>
+                <p>Order states synced from the backend.</p>
+            </div>
+            <div id="orders" class="order-list"></div>
+        </article>
+    </section>
+</main>
+<script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Sora:wght@600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-tea-green: #c8d69b;
+  --color-vanilla: #f6e6a5;
+  --color-celtic-blue: #3971b8;
+  --color-ivory: #fbfcee;
+  --color-drab-dark-brown: #343b1b;
+  --color-dark-bg: #06141b;
+  --color-dark-card: #11212d;
+  --color-dark-border: #253745;
+  --color-dark-text: #ccd0cf;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --app-bg-light: color-mix(in srgb, var(--color-ivory) 84%, white);
+  --app-bg-dark: var(--color-dark-bg);
+  --app-card-light: color-mix(in srgb, white 86%, var(--color-ivory));
+  --app-card-dark: var(--color-dark-card);
+  --app-border-light: color-mix(in srgb, var(--color-celtic-blue) 15%, #d8dfe9);
+  --ui-surface-light: rgba(255, 255, 255, 0.92);
+  --ui-surface-dark: rgba(17, 26, 46, 0.9);
+  --ui-muted-light: #64748b;
+  --ui-muted-dark: #a8b3c7;
+}
+
+@layer base {
+  body {
+    @apply text-drab-dark-brown transition-colors duration-300 antialiased;
+    font-family: "Manrope", sans-serif;
+    margin: 0;
+    background:
+      radial-gradient(circle at top left, color-mix(in srgb, var(--color-celtic-blue) 18%, transparent), transparent 25rem),
+      radial-gradient(circle at top right, color-mix(in srgb, var(--color-tea-green) 22%, transparent), transparent 22rem),
+      var(--app-bg-light);
+  }
+  .dark body {
+    background:
+      radial-gradient(circle at top left, color-mix(in srgb, var(--color-celtic-blue) 20%, transparent), transparent 26rem),
+      radial-gradient(circle at top right, color-mix(in srgb, var(--color-tea-green) 20%, transparent), transparent 23rem),
+      var(--app-bg-dark);
+    color: var(--color-dark-text);
+  }
+}
+
+h1, h2, h3 {
+  font-family: "Sora", "Manrope", sans-serif;
+}
+
+/* Custom Glass Effect */
+.glass {
+  @apply backdrop-blur-md border shadow-xl;
+  background: color-mix(in srgb, var(--app-card-light) 84%, white);
+  border-color: var(--app-border-light);
+}
+
+.dark .glass {
+  background: color-mix(in srgb, var(--app-card-dark) 84%, black);
+  border-color: var(--color-dark-border);
+}
+
+.ops-page {
+  min-height: 100vh;
+  color: #0f172a;
+}
+
+.dark .ops-page {
+  color: #e2e8f0;
+}
+
+.ops-header-card {
+  border-radius: 2rem;
+  border: 1px solid #dbe4f1;
+  background: var(--ui-surface-light);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+  padding: 1.25rem;
+}
+
+.dark .ops-header-card {
+  border-color: #2d3d58;
+  background: var(--ui-surface-dark);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.3);
+}
+
+.ops-kicker {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.ops-title {
+  font-size: clamp(1.55rem, 2vw, 2.15rem);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.dark .ops-title {
+  color: #e2e8f0;
+}
+
+.ops-subtitle {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--ui-muted-light);
+}
+
+.dark .ops-subtitle {
+  color: var(--ui-muted-dark);
+}
+
+.ops-stat-card {
+  border-radius: 1.6rem;
+  border: 1px solid #dbe4f1;
+  background: var(--ui-surface-light);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+}
+
+.dark .ops-stat-card {
+  border-color: #2d3d58;
+  background: var(--ui-surface-dark);
+}
+
+.ops-panel {
+  border-radius: 2rem;
+  border: 1px solid #dbe4f1;
+  background: var(--ui-surface-light);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+}
+
+.dark .ops-panel {
+  border-color: #2d3d58;
+  background: var(--ui-surface-dark);
+}
+
+.ops-btn-primary {
+  border-radius: 0.95rem;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.ops-btn-secondary {
+  border-radius: 0.95rem;
+  border: 1px solid #dbe4f1;
+  background: rgba(255, 255, 255, 0.86);
+  color: #334155;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.dark .ops-btn-secondary {
+  border-color: #2d3d58;
+  background: rgba(30, 41, 59, 0.82);
+  color: #d1d9e6;
+}
